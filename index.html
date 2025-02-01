@@ -5,98 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monte Carlo Simulation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/5261/5261273.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Monte Carlo Simulation</h1>
-            <button class="add-row-btn">Add Row</button>
-        </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <td contenteditable="true" placeholder="Enter Header.."></td>
-                    <td contenteditable="true" placeholder="Enter Header.."></td>
-                    <th>Probability</th>
-                    <th>Cumulative Probability</th>
-                    <th>RNI Range</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be dynamically added here -->
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        const addRowButton = document.querySelector('.add-row-btn');
-        const tableBody = document.querySelector('tbody');
-
-        // Function: Add Row
-        function addRow() {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td contenteditable="true" placeholder="Enter label.."></td>
-                <td contenteditable="true" placeholder="Enter label.."></td>
-                <td><input type="number" class="probability-input"></td>
-                <td class="cumulative-probability"> </td>
-                <td class="rni-range"> </td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="btn btn-delete">Delete</button>
-                    </div>
-                </td>
-            `;
-            tableBody.appendChild(row);
-
-            // Attach event listener for probability input change
-            row.querySelector('.probability-input').addEventListener('input', updateCalculations);
-        }
-
-        // Function: Remove Row
-        function removeRow(row) {
-            if (confirm("Are you sure you want to delete this row?")) {
-                row.remove();
-                updateCalculations();
-            }
-        }
-
-        // Add row event
-        addRowButton.addEventListener('click', addRow);
-
-        // Remove row event (using event delegation)
-        tableBody.addEventListener('click', event => {
-            if (event.target.classList.contains('btn-delete')) {
-                removeRow(event.target.closest('tr'));
-            }
-        });
-
-        // Function: Update Cumulative Probability & RNI Range
-        function updateCalculations() {
-            let cumulativeSum = 0;
-            let previousEnd = 0;
-
-            document.querySelectorAll('tbody tr').forEach(row => {
-                const probabilityInput = row.querySelector('.probability-input');
-                const cumulativeCell = row.querySelector('.cumulative-probability');
-                const rniRangeCell = row.querySelector('.rni-range');
-
-                const probability = parseFloat(probabilityInput.value) || 0;
-                cumulativeSum += probability;
-
-                // Decimal Places for Cumululative Prob.
-                cumulativeCell.textContent = cumulativeSum.toFixed(2);
-
-                // RNI Measurement
-                const rangeStart = previousEnd;
-                const rangeEnd = (cumulativeSum * 100) - 1;
-                rniRangeCell.textContent = `${rangeStart.toFixed(0)} to ${rangeEnd.toFixed(0)}`;
-
-                previousEnd = rangeEnd + 1;
-            });
-        }
-    </script>
+    <div id="root"></div>
+    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
