@@ -21,7 +21,7 @@ const htmlTag = `
                     <thead>
                         <tr>
                             <th contenteditable="true" data-placeholder="Enter label.."></th>
-                            <th contenteditable="true" data-placeholder="Enter label.."></th>
+                            <th contenteditable="true" data-placeholder="Enter Outputs.."></th>
                             <th>Probability</th>
                             <th>Cumulative Probability</th>
                             <th>Random Number Interval</th>
