@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #e6ecf0; /* Soft blue-gray */
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 10rem auto;
+    background: #ffffff; /* White container */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    color: #1a1a2e; /* Dark navy */
+    font-size: 24px;
+}
+
+.add-row-btn {
+    background: #009c78; /* Vibrant teal */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.add-row-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 5px 5px #888888;
+    background: #05b05d; /* Darker teal */
+}
+
+.add-row-btn:active {
+    transform: scale(.9);
+    box-shadow: 1px 5px 5px #888888;
+    background: #03783f; /* Darker teal */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th {
+    background-color: #d9dde1; /* Light grayish-blue */
+    color: #1a1a2e; /* Dark navy */
+    font-weight: 600;
+    padding: 12px;
+    text-align: center;
+    border: 2px solid #b0b4ba;
+}
+
+th:nth-child(3),
+th:nth-child(4),
+th:nth-child(5),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #c1c1c1;
+    color: #444;
+    background: #fdfdfd;
+}
+
+td[contenteditable="true"]:empty:before {
+    content: attr(placeholder);
+    color: #b0b4ba;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.btn-delete {
+    margin: 0 auto;
+    background: #e74c3c; /* Red */
+    color: white;
+}
+
+.btn-delete:hover {
+    transform: scale(1.1);
+    background: #c0392b;
+}
+
+.btn-delete:active {
+    transform: scale(.9);
+    background: #c0392b;
+}
+
+.rni-range {
+    font-family: monospace;
+    color: #666;
+}
+
+tr:hover td {
+    background-color: #f2f4f6; /* Soft hover effect */
+}
